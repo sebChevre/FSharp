@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WeatherForecast.fs" />
+    <Compile Include="Controllers/WeatherForecastController.fs" />
+    <Compile Include="Controllers\NUnitTest.fs" />
+    <Compile Include="Controllers\NotesTypes.fs" />
+    <Compile Include="Startup.fs" />
+    <Compile Include="Program.fs" />
+    <None Include="Scripts\TestScript.fsx" />
+    <None Include="Scripts\Curriyngfsx.fsx" />
+    <None Include="Scripts\Notes.fsx" />
+    <Compile Include="Scripts\NotesTypes.fs" />
+    <None Include="Scripts\Collections.fsx" />
+    <Content Include="Scripts\Tests\obj\project.assets.json" />
+    <Content Include="Scripts\Tests\obj\Tests.fsproj.nuget.dgspec.json" />
+    <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+  </ItemGroup>
+</Project>
