@@ -11,17 +11,13 @@ open Microsoft.AspNetCore.Mvc
 open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
-open Swashbuckle.Application
-open System.Web.Http;
+open Swashbuckle.AspNetCore.Swagger
+open Microsoft.OpenApi.Models
+
+
 
 type Startup private () =
 
-    static member RegisterWebApi(config: HttpConfiguration) =
-            // ...
-            // Swagger configuration
-            config
-              .EnableSwagger(fun c -> c.SingleApiVersion("v1", "My API") |> ignore)
-              .EnableSwaggerUi()
 
     new(configuration : IConfiguration) as this =
         Startup()
@@ -29,12 +25,19 @@ type Startup private () =
 
     // This method gets called by the runtime. Use this method to add services to the container.
     member this.ConfigureServices(services : IServiceCollection) =
+        let info = OpenApiInfo()
+        info.Title <- "My API V1"
+        info.Version <- "v1"
         // Add framework services.
+        services.AddSwaggerGen(fun c -> c.SwaggerDoc("v1",info)) |> ignore
         services.AddControllers() |> ignore
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app : IApplicationBuilder, env : IWebHostEnvironment) =
         if (env.IsDevelopment()) then app.UseDeveloperExceptionPage() |> ignore
+
+        app.UseSwagger() |> ignore
+        app.UseSwaggerUI(fun config -> config.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1")) |> ignore
 
         app.UseHttpsRedirection() |> ignore
         app.UseRouting() |> ignore

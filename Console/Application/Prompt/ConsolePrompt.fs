@@ -15,8 +15,6 @@ module ConsolePrompt =
                 printfn "Choix %s" numero
                 cb()    
 
-  
-    
     let printPrompt () = 
         printf "Choix [q: quit, l: liste tous les élèves, [no]; numéro d'élève voulu]:>"
     
@@ -27,14 +25,14 @@ module ConsolePrompt =
     let getLine = fun _->
         printPrompt ()
         Console.ReadLine ()
-
+        
     let writeResponse s = 
         match s with
             |"q" -> 
                 printfn "Bye!!!"
             |"l" ->
                 printfn "All eleves...to be implemented"
-            |numero ->
+            | numero ->
                 printfn "Choix %s" numero
         
 
@@ -60,10 +58,9 @@ module ConsolePrompt =
     
     //mode séqeunce
     let rec mainSequenceLoop () = 
+        printfn "end loop"
         let lignes = Seq.initInfinite getLine
         Seq.iter writeResponse (lignes)
-       
-
 
    
             
