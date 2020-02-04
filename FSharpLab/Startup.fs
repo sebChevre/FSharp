@@ -13,12 +13,12 @@ open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open Swashbuckle.AspNetCore.Swagger
 open Microsoft.OpenApi.Models
-
+open MongoDB.Driver
 
 
 type Startup private () =
 
-
+    
     new(configuration : IConfiguration) as this =
         Startup()
         then this.Configuration <- configuration
@@ -30,6 +30,15 @@ type Startup private () =
         info.Version <- "v1"
         // Add framework services.
         services.AddSwaggerGen(fun c -> c.SwaggerDoc("v1",info)) |> ignore
+
+        let mongo = MongoClient (Environment.GetEnvironmentVariable "MONGO_URL")
+        let db = mongo.GetDatabase "todos"
+
+
+       // services.AddTodoMongoDB(db.GetCollection<Todo>("todos")) |> ignore
+            
+       
+        
         services.AddControllers() |> ignore
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,3 +56,6 @@ type Startup private () =
         app.UseEndpoints(fun endpoints -> endpoints.MapControllers() |> ignore) |> ignore
 
     member val Configuration : IConfiguration = null with get, set
+
+
+
