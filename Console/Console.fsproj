@@ -4,12 +4,12 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Application\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Application\Prompt\ConsolePrompt.fs" />
     <Compile Include="Application\Eleves.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Application\Program.fs" />
+    <Compile Include="Application\Program.fs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 </Project>
