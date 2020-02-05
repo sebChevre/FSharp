@@ -9,7 +9,7 @@ open Microsoft.Extensions.Logging
 open FSharpLab
 
 [<ApiController>]
-[<Route("[controller]")>]
+[<Route("/weather")>]
 type WeatherForecastController(logger : ILogger<WeatherForecastController>) =
     inherit ControllerBase()
 

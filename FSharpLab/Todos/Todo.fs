@@ -1,10 +1,14 @@
 ﻿namespace Todos
 
+open Newtonsoft.Json
+
+[<CLIMutable>]
 type Todo =
   { Id: string
     Text: string
     Done: bool
   }
+
 
 type TodoCriteria =
   | All
