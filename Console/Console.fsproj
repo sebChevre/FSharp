@@ -10,15 +10,18 @@
     <None Include="Scripts\Curriyngfsx.fsx" />
     <None Include="Scripts\Notes.fsx" />
     <None Include="Scripts\TestScript.fsx" />
-    <Compile Include="Application\Prompt\ConsolePrompt.fs" />
     <Compile Include="Application\Eleves.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Application\ConsolePrompt.fs" />
     <Compile Include="Application\Program.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\Prompt\" />
   </ItemGroup>
 </Project>

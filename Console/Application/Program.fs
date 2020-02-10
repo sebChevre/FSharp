@@ -2,7 +2,7 @@
 namespace Application
 
 open System
-open Application.Prompt
+open ConsolePrompt
 
 module App = 
 (*
