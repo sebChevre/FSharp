@@ -38,10 +38,6 @@ module BulletinDeNotes =
     type Branche = {Nom: NomBranche;}
 
 
-
-
-
-
     type Resultat = {Note: Decimal2;Branche: Branche;}
 
     type BulletinEleve = {Eleve: Eleve; Notes: List<Resultat>}

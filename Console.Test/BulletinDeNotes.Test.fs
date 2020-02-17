@@ -1,4 +1,4 @@
-﻿module Console.Test
+﻿module BulletinDeNotes.Test
 
 open System
 open NUnit.Framework

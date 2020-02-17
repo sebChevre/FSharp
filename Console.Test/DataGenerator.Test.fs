@@ -1,4 +1,4 @@
-module UnitTest1
+module DataGenerator.Test
 
 open NUnit.Framework
 open Application

@@ -19,9 +19,6 @@
     <Compile Include="Application\Eleves.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Application\Eleves.Test.fs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Application\ConsolePrompt.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
