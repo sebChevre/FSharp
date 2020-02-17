@@ -3,6 +3,8 @@ namespace Application
 
 open System
 open ConsolePrompt
+open DataGenerator
+
 
 module App = 
 (*
@@ -48,7 +50,8 @@ module App =
         //el.Value |> List.map (fun v -> 
         //    printfn "%f" v 
         //)
-       
+
+        //DataGenerator.randomNote 1
         
         (*
         match Console.ReadLine() with

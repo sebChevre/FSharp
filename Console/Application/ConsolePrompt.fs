@@ -36,7 +36,7 @@ module ConsolePrompt =
             | numero ->
                 printfn "Choix %s" numero
 
-                let eleve = Eleves.classeMap.TryFind numero
+                let eleve = Eleves.findElevesByNumero (numero |> int)
 
                 match eleve with
                 |Some e -> printfn "%A" e
