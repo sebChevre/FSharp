@@ -1,10 +1,11 @@
-﻿namespace Application
+﻿module Eleves
+
 open System
 
-type Eleve = {FirstName:string; LastName:string}
+    type Eleve = {FirstName:string; LastName:string}
 
 
-module Eleves = 
+
     
     let eleves = ["Mickey Mouse", "Gontrand", "Minnie", "Donald"]
 

@@ -28,3 +28,9 @@ liste2 |> List.iter (fun prenom ->
     printfn "%A" prenom
 )
 
+let mapInconnu p = Prenom "Inconnu2"
+
+liste |> List.map mapInconnu 
+
+List.map mapInconnu liste2
+
