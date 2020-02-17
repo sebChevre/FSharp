@@ -44,3 +44,25 @@ let tupleToConcat tuple =
 
 tupleToConcat tup
 
+type Test = {
+    Test1: string;
+    Test2: int;
+}
+
+let rnd = System.Random()
+
+let generateRandTest i = 
+    {Test1 = "yep";Test2 = 25}
+
+let print i = 
+    printfn "print %i" i
+
+let printGen i = 
+    printfn "print %A" i
+
+let listTests = [0..100]|> List.map generateRandTest
+
+[0..100]|> List.iter print
+
+listTests |> List.iter printGen
+

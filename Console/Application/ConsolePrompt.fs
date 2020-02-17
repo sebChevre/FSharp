@@ -1,6 +1,7 @@
-﻿namespace Application.Prompt
+﻿namespace Application
 
 open System
+open Eleves
 
 module ConsolePrompt =
 
@@ -34,6 +35,13 @@ module ConsolePrompt =
                 printfn "All eleves...to be implemented"
             | numero ->
                 printfn "Choix %s" numero
+
+                let eleve = Eleves.findElevesByNumero (numero |> int)
+
+                match eleve with
+                |Some e -> printfn "%A" e
+                |None -> printfn "no eleve found with this numero"
+
         
 
     //******* Mode récursif, rapelle de la fonction loop
