@@ -17,8 +17,8 @@ module BulletinDeNotes =
         | false -> None
 
     let (|IsNotBeetween1And6|_|) decimalValue =
-        printfn "vale: %d" decimalValue
-        (decimalValue <= 1.00 || decimalValue >= 6.00)
+        printfn "vale: %f" decimalValue
+        (decimalValue < float 1 || decimalValue > float 6)
         |> ifTrueThen IsNotBeetween1And6
 
 

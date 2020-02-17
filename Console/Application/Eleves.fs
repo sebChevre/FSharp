@@ -1,20 +1,17 @@
-﻿module Eleves
+﻿namespace Application
 
 open System
-open BulletinDeNotes
-
-<<<<<<< HEAD
-    type Eleve = {FirstName:string; LastName:string}
+open Application.BulletinDeNotes
 
 
+type Eleve = {FirstName:string; LastName:string}
 
-    
-    let eleves = ["Mickey Mouse", "Gontrand", "Minnie", "Donald"]
-=======
+
+
 
 
 module Eleves = 
->>>>>>> 5e716997df761895d6bad8830f7dfa037dde8afb
+
 
     let eleves = [
         {Prenom="Mickey"; Nom="Mouse"; Numero=12;}; 

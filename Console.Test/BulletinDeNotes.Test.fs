@@ -35,13 +35,25 @@ let `` given a float value when this value is used to create a note then a note 
     Assert.That(countDecimal note.Value,Is.EqualTo 2)
 
 [<Test>]
-let `` given a float value when this value is used to create a note then a note is created in range 1 - 6``() =
+let `` given a float value out of the range 1 - 6 when this value is used to create a note then the function return None``() =
 
-    let fVal = 26.4342523332
-    match decimal2 fVal with
-    |_ -> Assert.Fail
-    |None -> Assert.Fail
-    //printfn "Note generated: %A" note.Value
-    //match note with
-    //|Some note -> Assert.Fail
-    //|None -> Assert.Pass
+    let fVal = 34.342
+    let dec = decimal2 fVal
+
+    Assert.That (dec, Is.Null)
+    Assert.True dec.IsNone
+
+[<Test>]
+let `` given a float value equal to 1 when this value is used to create a note then the note is returned``() =
+    
+    let fVal = float 1
+    let dec = decimal2 fVal
+    Assert.True dec.IsSome
+
+[<Test>]
+let `` given a float value equal to 6 when this value is used to create a note then the note is returned``() =
+    
+    let fVal = 6.00
+    let dec = decimal2 fVal
+    Assert.True dec.IsSome
+
