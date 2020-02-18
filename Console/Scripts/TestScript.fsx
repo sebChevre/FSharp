@@ -66,3 +66,14 @@ let listTests = [0..100]|> List.map generateRandTest
 
 listTests |> List.iter printGen
 
+let add1 x = x + 1
+
+let add1IfSomething = Option.map add1
+
+Some 34 |> add1IfSomething
+
+None |> add1IfSomething
+
+let valeurs = [Some 2;Some 3;Some 4;None;Some 2;Some 1]
+
+valeurs |> List.map add1IfSomething 

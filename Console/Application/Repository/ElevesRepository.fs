@@ -1,19 +1,12 @@
-﻿namespace Application
+﻿namespace Application.Repository
 
-open System
-open Application.BulletinDeNotes
-
-
-type Eleve = {FirstName:string; LastName:string}
+open Application.Domaine.BulletinDeNotes
 
 
+module ElevesRepository = 
 
 
-
-module Eleves = 
-
-
-    let eleves = [
+    let private eleves = [
         {Prenom="Mickey"; Nom="Mouse"; Numero=12;}; 
         {Prenom="Gontrand"; Nom=""; Numero=23; };
         {Prenom="Minnie"; Nom=""; Numero=11; };
@@ -29,6 +22,7 @@ module Eleves =
             |[_]-> Some (found.Item 0)
             |_  -> None
 
+    let getAllEleves = eleves
             (*
     let notesForEleve eleve =
         let resultats  = DataGenerator.generateRandomResultats 10

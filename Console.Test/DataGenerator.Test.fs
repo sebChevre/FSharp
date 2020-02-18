@@ -1,19 +1,18 @@
 module DataGenerator.Test
 
 open NUnit.Framework
-open Application
-open Application.BulletinDeNotes
-open System
-open DataGenerator
+open Application.Domaine.BulletinDeNotes
+open Application.Repository.DataGenerator
+open Application.Repository
 
 [<SetUp>]
 let Setup() = ()
 
 let genereate100Branches = 
-   List.init 100 DataGenerator.pickRandomBranche 
+   List.init 100 pickRandomBranche 
 
 let generate100Resultat  = 
-   List.init 100 DataGenerator.randomResultat
+   List.init 100 randomResultat
 
 let checkResultat resultat =
     Assert.That(mapDecimal2ToFloat resultat.Note,Is.GreaterThanOrEqualTo(1.00))
@@ -31,7 +30,7 @@ let filterAllemandResultatFloat = filterResultatFloatByBranche NomBranche.Allema
 let ``given the list of eleves wheng geting the list then the size musst match``() = 
 
     let expected = 4 //nbre eleves
-    let actual = Eleves.eleves.Length
+    let actual = ElevesRepository.eleves.Length
     Assert.That(expected,Is.EqualTo(actual))
 
 
@@ -64,7 +63,7 @@ let ``given 100 call to randomResultat then i get randomResultats``() =
 [<Test>]
 let ``given call to random bulletinNote then bulletin notes is ok`` () = 
 
-    let eleve = generateBulletinForEleve (Eleves.findElevesByNumero 12).Value
+    let eleve = generateBulletinForEleve (ElevesRepository.findElevesByNumero 12).Value
 
     let bulletin = eleve (List.init 10 randomResultat)
 
@@ -74,7 +73,7 @@ let ``given call to random bulletinNote then bulletin notes is ok`` () =
 [<Test>]
 let ``given a bulletin when call moyenne from branche then i get a list groupb by branch``() =
 
-    let eleve = generateBulletinForEleve (Eleves.findElevesByNumero 12).Value
+    let eleve = generateBulletinForEleve (ElevesRepository.findElevesByNumero 12).Value
 
     let bulletin = eleve (List.init 10 randomResultat)
 

@@ -2,7 +2,7 @@
 
 open System
 open NUnit.Framework
-open Application.BulletinDeNotes
+open Application.Domaine.BulletinDeNotes
 open System
 
 [<SetUp>]

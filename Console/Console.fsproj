@@ -4,33 +4,45 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Scripts\type-dependency-graph.fsx" />
+    <None Include="Scripts\nuget-dependency-visualizer.fsx" />
     <None Include="Scripts\WebPageDownlaod.fsx" />
     <Compile Include="Scripts\NotesTypes.fs" />
     <None Include="Scripts\Collections.fsx" />
     <None Include="Scripts\Curriyngfsx.fsx" />
     <None Include="Scripts\Notes.fsx" />
     <None Include="Scripts\TestScript.fsx" />
-    <Compile Include="Application\BulletinDeNotes.fs">
+    <Compile Include="Application\Domaine\BulletinDeNotes.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Application\DataGenerator.fs">
+    <Compile Include="Application\Repository\DataGenerator.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Application\Eleves.fs">
+    <Compile Include="Application\Repository\ElevesRepository.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Application\ConsolePrompt.fs">
+    <Compile Include="Application\Repository\BulletinDeNotesRepository.fs" />
+    <Compile Include="Application\Prompt\CommonPrompt.fs" />
+    <Compile Include="Application\Prompt\RecursiveConsolePrompt.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Application\Prompt\SequenceConsolePrompt.fs" />
     <Compile Include="Application\Program.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
+    <PackageReference Include="Mono.Cecil" Version="0.11.1" />
+    <PackageReference Include="Nessos.Expressions.Splicer" Version="1.0.2" />
+    <PackageReference Include="NuGet.Core" Version="2.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="QuickGraph" Version="3.6.61119.7" />
+    <PackageReference Include="Streams" Version="0.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Application\Prompt\" />
   </ItemGroup>
 </Project>

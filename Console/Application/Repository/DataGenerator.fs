@@ -1,7 +1,7 @@
-﻿namespace Application
+﻿namespace Application.Repository
 
 open System
-open Application.BulletinDeNotes
+open Application.Domaine.BulletinDeNotes
 
 module DataGenerator = 
     
