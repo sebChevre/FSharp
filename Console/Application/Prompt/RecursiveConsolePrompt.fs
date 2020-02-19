@@ -38,6 +38,7 @@ module ConsolePrompt =
         |"b"  ->
             let bulletins = getAllBulletins
             bulletins |> List.iter prettyPrintBulletin
+            promptLoop()
         | numero ->
             match choixIsInt numero with
             |Some digit -> 

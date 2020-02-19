@@ -3,7 +3,7 @@ module DataGenerator.Test
 open NUnit.Framework
 open Application.Domaine.BulletinDeNotes
 open Application.Repository.DataGenerator
-open Application.Repository
+open Application.Repository.ElevesRepository
 
 [<SetUp>]
 let Setup() = ()
