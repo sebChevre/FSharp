@@ -10,6 +10,7 @@ module BulletinDeNotes =
 
     let add1 = ( + ) 1.00
 
+  
     type Decimal2 = private Decimal2 of float
 
     let ifTrueThen success = function
