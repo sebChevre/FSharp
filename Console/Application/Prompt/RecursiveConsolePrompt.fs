@@ -7,6 +7,7 @@ open Application.Prompt.CommonPrompt
 open Application.Repository.ElevesRepository
 open Application.Repository.BulletinDeNotesRepository
 open Application.Domaine.BulletinDeNotes
+open Application.Repository.MongoDbSettings
 
 module ConsolePrompt =
 
@@ -58,6 +59,9 @@ module ConsolePrompt =
         
     //******* Mode récursif, rapelle de la fonction loop
     let rec mainRecursiveLoop () = 
+
+       testCollection.InsertOne {Nom="Seb"; Prenom="tutu"; Numero=12}
+
        let input = getInput()
        
        dealInputPrompt (input,mainRecursiveLoop)

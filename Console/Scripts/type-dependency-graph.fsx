@@ -22,9 +22,12 @@ Once the project exists, you can run the NuGet commands from the "Package Manage
 // make Visual Studio use the script directory
 System.IO.Directory.SetCurrentDirectory(__SOURCE_DIRECTORY__)
 
-#r @"C:/Users/sce/.nuget/packages/mono.cecil/0.11.1/lib/net40/Mono.Cecil.dll"
-#r @"C:/Users/sce/.nuget/packages/mono.cecil/0.11.1/lib/net40/Mono.Cecil.Rocks.dll"
-#r @"C:/Users/sce/.nuget/packages/quickgraph/3.6.61119.7/lib/net4/QuickGraph.dll"
+//#r @"C:/Users/sce/.nuget/packages/mono.cecil/0.11.1/lib/net40/Mono.Cecil.dll"
+//#r @"C:/Users/sce/.nuget/packages/mono.cecil/0.11.1/lib/net40/Mono.Cecil.Rocks.dll"
+//#r @"C:/Users/sce/.nuget/packages/quickgraph/3.6.61119.7/lib/net4/QuickGraph.dll"
+#r @"/Users/seb/.nuget/packages/mono.cecil/0.11.1/lib/net40/Mono.Cecil.dll"
+#r @"/Users/seb/.nuget/packages/mono.cecil/0.11.1/lib/net40/Mono.Cecil.Rocks.dll"
+#r @"/Users/seb/.nuget/packages/quickgraph/3.6.61119.7/lib/net4/QuickGraph.dll"
 
 open System
 open System.IO

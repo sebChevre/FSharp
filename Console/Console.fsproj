@@ -22,6 +22,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Application\Repository\BulletinDeNotesRepository.fs" />
+    <Compile Include="Application\Repository\MongoDbSettings.fs" />
+    
     <Compile Include="Application\Prompt\CommonPrompt.fs" />
     <Compile Include="Application\Prompt\RecursiveConsolePrompt.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -30,8 +32,10 @@
     <Compile Include="Application\Program.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <PackageReference Include="QuickGraph" Version="3.6.61119.7" />
+    <PackageReference Include="Streams" Version="0.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="Mono.Cecil" Version="0.11.1" />
     <PackageReference Include="Nessos.Expressions.Splicer" Version="1.0.2" />
@@ -40,9 +44,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="QuickGraph" Version="3.6.61119.7" />
-    <PackageReference Include="Streams" Version="0.5.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
   </ItemGroup>
 </Project>

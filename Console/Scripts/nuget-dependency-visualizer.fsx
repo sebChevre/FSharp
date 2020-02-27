@@ -1,5 +1,5 @@
-﻿#r @"C:/Users/sce/.nuget/packages/streams/0.5.0/lib/net45/Streams.dll"
-
+﻿//#r @"C:/Users/sce/.nuget/packages/streams/0.5.0/lib/net45/Streams.dll"
+#r @"/Users/seb/.nuget/packages/streams/0.5.0/lib/net45/Streams.dll"
 
 open System
 open System.IO
