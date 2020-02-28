@@ -4,25 +4,17 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Scripts\type-dependency-graph.fsx" />
-    <None Include="Scripts\nuget-dependency-visualizer.fsx" />
-    <None Include="Scripts\WebPageDownlaod.fsx" />
-    <Compile Include="Scripts\NotesTypes.fs" />
-    <None Include="Scripts\Collections.fsx" />
-    <None Include="Scripts\Curriyngfsx.fsx" />
-    <None Include="Scripts\Notes.fsx" />
-    <None Include="Scripts\TestScript.fsx" />
     <Compile Include="Application\Domaine\BulletinDeNotes.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Application\Repository\DataGenerator.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Application\Repository\MongoDbSettings.fs" />
     <Compile Include="Application\Repository\ElevesRepository.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Application\Repository\BulletinDeNotesRepository.fs" />
-    <Compile Include="Application\Repository\MongoDbSettings.fs" />
     
     <Compile Include="Application\Prompt\CommonPrompt.fs" />
     <Compile Include="Application\Prompt\RecursiveConsolePrompt.fs">
@@ -32,6 +24,17 @@
     <Compile Include="Application\Program.fs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <None Include="Scripts\ConsoleMongoFeeder.fsx" />
+    <Content Include="Scripts\data\test.json" />
+    <None Include="Scripts\JsonAccess.fsx" />
+    <None Include="Scripts\type-dependency-graph.fsx" />
+    <None Include="Scripts\nuget-dependency-visualizer.fsx" />
+    <None Include="Scripts\WebPageDownlaod.fsx" />
+    <Compile Include="Scripts\NotesTypes.fs" />
+    <None Include="Scripts\Collections.fsx" />
+    <None Include="Scripts\Curriyngfsx.fsx" />
+    <None Include="Scripts\Notes.fsx" />
+    <None Include="Scripts\TestScript.fsx" />
     <PackageReference Include="QuickGraph" Version="3.6.61119.7" />
     <PackageReference Include="Streams" Version="0.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />

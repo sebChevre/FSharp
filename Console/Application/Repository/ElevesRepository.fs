@@ -1,19 +1,21 @@
 ﻿namespace Application.Repository
 
 open Application.Domaine.BulletinDeNotes
-
+open Application.Repository.MongoDbSettings
 
 module ElevesRepository = 
 
-
+(*
     let private eleves = [
         {Prenom="Mickey"; Nom="Mouse"; Numero=12;}; 
         {Prenom="Gontrand"; Nom=""; Numero=23; };
         {Prenom="Minnie"; Nom=""; Numero=11; };
         {Prenom="Donald"; Nom=""; Numero=10; }
         ]   
+ *)
 
-
+    let private eleves = getAll
+   
     //let eleves:Map<int,Eleve> = e4|> Seq.map (fun eleve -> eleve.Numero, eleve) |> Map.ofSeq
     let findElevesByNumero numero = 
         let found = eleves |> List.filter (fun eleve -> eleve.Numero = numero) 

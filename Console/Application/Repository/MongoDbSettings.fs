@@ -2,6 +2,7 @@
 
 open MongoDB.Bson
 open MongoDB.Driver
+open MongoDB.Driver
 open Application.Domaine.BulletinDeNotes
 
 module MongoDbSettings = 
@@ -21,3 +22,5 @@ module MongoDbSettings =
     let client         = MongoClient(ConnectionString)
     let db             = client.GetDatabase(DbName)
     let testCollection = db.GetCollection<Eleve>(CollectionName)
+
+    let getAll:Eleve list = testCollection.FindSync(Builders.Filter.Empty).ToEnumerable() |> Seq.toList
