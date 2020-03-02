@@ -19,9 +19,7 @@ module DataGenerator =
         
     let pickRandomBranche i =
         let alea = rnd.Next 3
-
-        printfn "random %i" alea
-
+        
         match alea with
         |0 -> {Nom=NomBranche.Allemand}
         |1 -> {Nom=NomBranche.Francais}

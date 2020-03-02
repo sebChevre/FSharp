@@ -27,43 +27,89 @@ module ConsolePrompt =
     let prettyPrintBulletin (bulletin:BulletinEleve) =
         printfn "%A" bulletin
 
-    let dealInputPrompt = fun (inputChoice:string, promptLoop)->
+    let displayEleveDetail () =
+        let eleves = getAllEleves
+        printfn "%i eleve(s) found" countEleves
+        eleves |> List.iter prettyPrintEleve
+
+    let displayEleveForm () = 
+        printfn "Nom élève:"
+        let nom = Console.ReadLine()
+        printfn "Prenom élève:"
+        let prenom = Console.ReadLine()
+        creerEleve ( nom, prenom )|> ignore
+        printfn "Elèves créé"
+
+    let displayMoyennesBranches () =
+        let ress = 
+            getAllBulletins
+                |> List.map (fun bulletin -> bulletin.Notes)
+                |> List.concat
+                |> List.groupBy (fun res -> res.Branche)
+                |> List.map (fun (branche,resultats) -> 
+                    let moyenneBranche = 
+                        resultats 
+                        |> List.map (fun res -> mapDecimal2ToFloat res.Note)
+                        |> List.average
+                    (branche,moyenneBranche)
+                            
+                )
+               // |> List.concat
+               // |> List.groupBy (fun b -> b.Branche)
+               // |> List.map (fun (branche,res) -> ))
+                //|> List.concat
+                //|> List.sumBy (fun resu -> mapDecimal2ToFloat resu.Note)
+
+        printfn "%A" ress
+
+    let traitementChoixOption = fun (inputChoice:string, promptLoop)->
         
         match inputChoice with
-        |"q" -> 
-            printfn "Bye!!!"
+
+
         |"l" ->
-            let eleves = getAllEleves
-            eleves |> List.iter prettyPrintEleve
-            promptLoop()
+            displayEleveDetail ()
+            //keyToContinue()
+            //promptLoop()
+        |"m" -> 
+            displayMoyennesBranches ()
+        |"c" ->
+            displayEleveForm ()
         |"b"  ->
             let bulletins = getAllBulletins
             bulletins |> List.iter prettyPrintBulletin
-            promptLoop()
+            //keyToContinue()
+            //promptLoop()
         | numero ->
             match choixIsInt numero with
             |Some digit -> 
                 let eleve = findElevesByNumero digit
                 printEleveChoiceResult eleve
-                promptLoop()        
+                //keyToContinue()
+                //promptLoop()        
             |None -> 
                 printfn "Only digit to search eleve\n"
-                promptLoop()
+                //keyToContinue()
+                //promptLoop()
+                
+        promptLoop()
 
-
-    let getInput () =
-        printPrompt ()
-        Console.ReadLine ()
 
     
         
     //******* Mode récursif, rapelle de la fonction loop
     let rec mainRecursiveLoop () = 
 
-      
-       let input = getInput()
+        afficheMenu()
+        let input = Console.ReadLine ()
+
+        match input with
+        |"q" -> printfn "Bye!!!"
+        |_ -> traitementChoixOption ( input, mainRecursiveLoop )
        
-       dealInputPrompt (input,mainRecursiveLoop)
+       
+
+
    
        
 

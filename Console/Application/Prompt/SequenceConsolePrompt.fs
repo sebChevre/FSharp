@@ -22,7 +22,7 @@ module SequenceConsolePrompt =
                 |None -> printfn "no eleve found with this numero"
 
     let getLine = fun _->
-        printPrompt ()
+
         Console.ReadLine ()
 
     let rec mainSequenceLoop () = 

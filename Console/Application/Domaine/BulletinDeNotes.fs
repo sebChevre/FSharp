@@ -18,7 +18,6 @@ module BulletinDeNotes =
         | false -> None
 
     let (|IsNotBeetween1And6|_|) decimalValue =
-        printfn "vale: %f" decimalValue
         (decimalValue < float 1 || decimalValue > float 6)
         |> ifTrueThen IsNotBeetween1And6
 
@@ -30,18 +29,19 @@ module BulletinDeNotes =
         | IsNotBeetween1And6 -> None
         | valeur -> applyFormatDecimal2 valeur |> Decimal2 |>Some
 
+    type NumeroEleve =  NumeroEleve of int
 
-        
-    type Eleve = {Prenom: string; Nom: string; Numero: int}
+    type Eleve = {Prenom:String; Nom: string; Numero: NumeroEleve}
 
     type NomBranche = Francais | Math | Allemand
 
     type Branche = {Nom: NomBranche;}
 
 
+
     type Resultat = {Note: Decimal2;Branche: Branche;}
 
-    type BulletinEleve = {Eleve: Eleve; Notes: List<Resultat>}
+    type BulletinEleve = {Eleve: NumeroEleve; Notes: List<Resultat>}
 
     //***** Création *******
     let createResultat note branche = {Note=note;Branche=branche}
@@ -52,6 +52,13 @@ module BulletinDeNotes =
     let mapDecimal2ToFloat (note:Decimal2) = 
         let (Decimal2 note') = note
         note'
+
+    let mapStringToBranche (chaine:string) =
+        match chaine with 
+        |"Francais" -> {Nom=NomBranche.Francais}
+        |"Math" -> {Nom=NomBranche.Math}
+        |"Allemand" -> {Nom=NomBranche.Allemand}
+        |_ -> {Nom=NomBranche.Allemand}
 
     let mapResultatTofLoat (resultat:Resultat) = 
         mapDecimal2ToFloat resultat.Note

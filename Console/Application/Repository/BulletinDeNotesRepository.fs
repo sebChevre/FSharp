@@ -1,13 +1,23 @@
 ﻿namespace Application.Repository
 
-open Application.Repository.ElevesRepository
-open Application.Repository.DataGenerator
+open Application.Repository
+open Application.Repository.Mongo.MongoDbSettings
+open Application.Repository.Mongo
+open MongoDB.Driver
+
 
 module BulletinDeNotesRepository =
 
     let bulletins = 
-        getAllEleves |> List.map (fun e -> 
-            generateBulletinForEleve e (generateRandomResultats 10) 
+        ElevesRepository.getAllEleves |> List.map (fun e -> 
+            DataGenerator.generateBulletinForEleve e.Numero (DataGenerator.generateRandomResultats 10) 
         )
 
-    let getAllBulletins = bulletins
+
+    let createBulletin bulletin = 
+        bulletinsCollection.InsertOne bulletin
+
+    let getAllBulletins = 
+        bulletinsCollection.FindSync(Builders.Filter.Empty).ToEnumerable()
+        |> Seq.toList
+        |> List.map (fun bulletinDto -> (Dto.BulletinEleve.toDomain bulletinDto)) 
