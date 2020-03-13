@@ -54,11 +54,7 @@ module ConsolePrompt =
                     (branche,moyenneBranche)
                             
                 )
-               // |> List.concat
-               // |> List.groupBy (fun b -> b.Branche)
-               // |> List.map (fun (branche,res) -> ))
-                //|> List.concat
-                //|> List.sumBy (fun resu -> mapDecimal2ToFloat resu.Note)
+              
 
         printfn "%A" ress
 
