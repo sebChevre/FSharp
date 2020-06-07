@@ -6,6 +6,7 @@
   <ItemGroup>
     <Folder Include="Application\Scripts\" />
     <Folder Include="Application\Repository\Mongo\" />
+    <Folder Include="Application\Scripts\public\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Domaine\BulletinDeNotes.fs">
@@ -52,5 +53,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <None Include="Application\Scripts\OpenZhJuFeeder.fsx" />
+    <PackageReference Include="FSharp.Data" Version="3.3.3" />
+    <PackageReference Include="Suave" Version="2.5.6" />
+    <None Include="Application\Scripts\SuaveTestfsx.fsx" />
+    <None Include="Application\Scripts\SuaveTestfsxStatic.fsx" />
+    <None Include="Application\Scripts\public\index.html" />
   </ItemGroup>
 </Project>
