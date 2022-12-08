@@ -19,7 +19,7 @@
     <None Include="index2.html" />
     <PackageReference Include="FSharp.Data" Version="3.3.3" />
     <PackageReference Include="Suave" Version="1.1.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="DotLiquid" Version="2.0.325" />
     <PackageReference Include="Suave.DotLiquid" Version="2.5.6" />
     <PackageReference Include="Suave.Testing" Version="2.2.1" />
