@@ -40,7 +40,7 @@
     <None Include="Application\Scripts\TestScript.fsx" />
     <None Include="Application\Scripts\type-dependency-graph.fsx" />
     <None Include="Application\Scripts\WebPageDownlaod.fsx" />
-    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
     <PackageReference Include="NuGet.Core" Version="2.14.0" />
     <PackageReference Include="Nessos.Expressions.Splicer" Version="1.0.2" />
     <PackageReference Include="Mono.Cecil" Version="0.11.1" />
